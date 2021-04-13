@@ -550,8 +550,6 @@ module WelcomeHelper
 
   end
 
-end
-
 ##########################################
 ##########################################
 
@@ -695,7 +693,7 @@ end
     #push numbers into array and only get enough so that all numbers are accounted for
     counter = 3
     100.times do
-      latest_draws.push(results[counter].split('-'))
+      latest_draws.push((results[counter].split('-')).take(5))
       counter = counter + 5
       break if latest_draws.flatten.uniq.length == 60
     end
@@ -713,7 +711,7 @@ end
     end
 
     #set all numbers that were drawn to 1
-    6.times do |draw|
+    5.times do |draw|
       latest_draws[draw].each do |pick|
         candidates[pick] = 1
       end
@@ -759,7 +757,7 @@ end
         end
       end
     end
-
+    
     ball_one = Hash.new
     all_numbers.each do |f|
       candidates.each do |key, value|
@@ -768,19 +766,19 @@ end
         end
       end
     end
-
+    
     # get counts for each number drawn and fill in ranges
     candidates.each do |key, value|
       latest_draws.each do |draw|
         draw.each do |j|
           if key == j
-            if key.to_i < 6
+            if key.to_i < 7
               ball_one[key] = ball_one[key] + 1
-            elsif key.to_i < 22
+            elsif key.to_i < 23
               ball_two[key] = ball_two[key] + 1
-            elsif key.to_i < 38
+            elsif key.to_i < 39
               ball_three[key] = ball_three[key] + 1
-            elsif key.to_i < 54
+            elsif key.to_i < 55
               ball_four[key] = ball_four[key] + 1
             else
               ball_five[key] = ball_five[key] + 1
