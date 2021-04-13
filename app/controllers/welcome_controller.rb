@@ -10,4 +10,7 @@ class WelcomeController < ApplicationController
 
   def cash5
   end
+
+  def treasurehunt
+  end
 end
