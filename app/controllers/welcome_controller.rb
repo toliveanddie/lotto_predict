@@ -5,6 +5,9 @@ class WelcomeController < ApplicationController
   def megaball
   end
 
+  def cash4life
+  end
+
   def match6
   end
 

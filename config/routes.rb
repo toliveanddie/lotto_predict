@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'welcome#index'
   get '/megaball', to: "welcome#megaball"
+  get '/cash4life', to: "welcome#cash4life"
   get '/match6', to: "welcome#match6"
   get '/cash5', to: "welcome#cash5"
   get '/treasurehunt', to: "welcome#treasurehunt"
