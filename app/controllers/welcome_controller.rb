@@ -7,4 +7,7 @@ class WelcomeController < ApplicationController
 
   def match6
   end
+
+  def cash5
+  end
 end

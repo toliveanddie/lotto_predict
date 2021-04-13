@@ -1,0 +1,30 @@
+<h1>Cash5</h1>
+
+<% function = cash5 %>
+
+<div class="row">
+  <div class="col-md-1">
+    <h3>Ball 1</h3>
+  </div>
+  <div class="col-md-1">
+    <h3>Ball 2</h3>
+  </div>
+  <div class="col-md-1">
+    <h3>Ball 3</h3>
+  </div>
+  <div class="col-md-1">
+    <h3>Ball 4</h3>
+  </div>
+  <div class="col-md-1">
+    <h3>Ball 5</h3>
+  </div>
+</div>
+<div class="row">
+  <% function.each do |position| %>
+    <div class="col-md-1">
+      <% position.each do |key, value| %>
+        <h4><%= key %><small><%= value %></small></h4>
+      <% end %>
+    </div>
+  <% end %>
+</div>
