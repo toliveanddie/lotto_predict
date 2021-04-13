@@ -447,7 +447,7 @@ module WelcomeHelper
       break if latest_draws.flatten.uniq.length == 43
     end
   
-    #put all 49 numbers into an array as strings
+    #put all 43 numbers into an array as strings
     all_numbers = Array.new
     43.times do |t|
       all_numbers.push((t+1).to_s)
@@ -574,7 +574,7 @@ def treasurehunt
     break if latest_draws.flatten.uniq.length == 30
   end
 
-  #put all 49 numbers into an array as strings
+  #put all 30 numbers into an array as strings
   all_numbers = Array.new
   30.times do |t|
     all_numbers.push((t+1).to_s)
