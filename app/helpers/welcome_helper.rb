@@ -682,27 +682,22 @@ module WelcomeHelper
   def cash4life
 
     # get the source
-    doc = Nokogiri::HTML(URI.open('https://lottery.com/previous-results/pa/cash4life/2021/'))
-    results = []
-    doc.css('td').each do |data|
-      results.push(data.content)
+    results = JSON.parse(HTTParty.get('https://data.ny.gov/resource/kwxv-fwze.json').body)
+
+    #push the results into an array.
+    winning_numbers = Array.new
+    results.each do |key|
+      winning_numbers.push(key['winning_numbers'].split)
     end
 
-    latest_draws = Array.new #holds strings of numbers
-
-    #push numbers into array and only get enough so that all numbers are accounted for
-    counter = 3
-    100.times do
-      latest_draws.push((results[counter].split('-')).take(5))
-      counter = counter + 5
+    #get enough draws so that all numbers are accounted for
+    latest_draws = []
+    100.times do |picks|
+      latest_draws.push(winning_numbers[picks])
       break if latest_draws.flatten.uniq.length == 60
     end
-
-    #put all 30 numbers into an array as strings
-    all_numbers = Array.new
-    60.times do |t|
-      all_numbers.push((t+1).to_s)
-    end
+    all_numbers = []
+    all_numbers = latest_draws.flatten.uniq.sort
 
     #create hash with all numbers and set value to zero
     candidates = Hash.new
@@ -730,7 +725,7 @@ module WelcomeHelper
         end
       end
     end
-
+    
     ball_four = Hash.new
     all_numbers.pop(16).each do |c|
       candidates.each do |key, value|
@@ -739,7 +734,7 @@ module WelcomeHelper
         end
       end
     end
-
+    
     ball_three = Hash.new
     all_numbers.pop(16).each do |d|
       candidates.each do |key, value|
@@ -748,7 +743,7 @@ module WelcomeHelper
         end
       end
     end
-
+    
     ball_two = Hash.new
     all_numbers.pop(16).each do |e|
       candidates.each do |key, value|
