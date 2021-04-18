@@ -26,14 +26,14 @@ module WelcomeHelper
     end
 
     #set all numbers that were drawn to 1
-    #7.times do |draw|
-    #  latest_draws[draw].each do |pick|
-    #    candidates[pick] = 1
-    #  end
-    #end
+    1.times do |draw|
+      latest_draws[draw].each do |pick|
+        candidates[pick] = 1
+      end
+    end
   
     #remove all numbers that were drawn
-    #candidates.delete_if {|k, v| v == 1}
+    candidates.delete_if {|k, v| v == 1}
 
     #initialize ranges
     ball_five = Hash.new
@@ -170,11 +170,11 @@ module WelcomeHelper
     end
 
     #set all numbers that were drawn to 1
-    #7.times do |draw|
-    #  latest_draws[draw].each do |pick|
-    #    candidates[pick] = 1
-    #  end
-    #end
+    1.times do |draw|
+      latest_draws[draw].each do |pick|
+        candidates[pick] = 1
+      end
+    end
   
     #remove all numbers that were drawn
     #candidates.delete_if {|k, v| v == 1}
@@ -326,14 +326,14 @@ module WelcomeHelper
     end
 
     #set all numbers that were drawn to 1
-    7.times do |draw|
-      latest_draws[draw].each do |pick|
-        candidates[pick] = 1
-      end
-    end
+    #7.times do |draw|
+    #  latest_draws[draw].each do |pick|
+    #    candidates[pick] = 1
+    #  end
+    #end
     
     #remove all numbers that were drawn
-    candidates.delete_if {|k, v| v == 1}
+    #candidates.delete_if {|k, v| v == 1}
     
     #initialize ranges
     ball_six = Hash.new
