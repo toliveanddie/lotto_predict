@@ -177,7 +177,7 @@ module WelcomeHelper
     end
   
     #remove all numbers that were drawn
-    #candidates.delete_if {|k, v| v == 1}
+    candidates.delete_if {|k, v| v == 1}
 
     #initialize ranges
     ball_five = Hash.new
