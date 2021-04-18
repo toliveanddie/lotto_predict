@@ -109,7 +109,7 @@ module WelcomeHelper
     positions.each do |position|
       g = position.values
       g.sort!
-      position.delete_if {|k, v| v < g.last(3).first}
+      position.delete_if {|k, v| v < g.last}
     end
 
     #get the money ball counts
@@ -253,7 +253,7 @@ module WelcomeHelper
     positions.each do |position|
       g = position.values
       g.sort!
-      position.delete_if {|k, v| v < g.last(3).first}
+      position.delete_if {|k, v| v < g.last}
     end
 
     #get the money ball counts
@@ -326,14 +326,14 @@ module WelcomeHelper
     end
 
     #set all numbers that were drawn to 1
-    #4.times do |draw|
-    #  latest_draws[draw].each do |pick|
-    #    candidates[pick] = 1
-    #  end
-    #end
+    7.times do |draw|
+      latest_draws[draw].each do |pick|
+        candidates[pick] = 1
+      end
+    end
     
     #remove all numbers that were drawn
-    #candidates.delete_if {|k, v| v == 1}
+    candidates.delete_if {|k, v| v == 1}
     
     #initialize ranges
     ball_six = Hash.new
@@ -419,7 +419,7 @@ module WelcomeHelper
     positions.each do |position|
       g = position.values
       g.sort!
-      position.delete_if {|k, v| v < g.last(3).first}
+      position.delete_if {|k, v| v < g.last}
     end
 
     return positions
@@ -790,7 +790,7 @@ module WelcomeHelper
     positions.each do |position|
       g = position.values
       g.sort!
-      position.delete_if {|k, v| v < g.last(3).first}
+      position.delete_if {|k, v| v < g.last}
     end
 
     return positions
