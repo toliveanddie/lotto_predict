@@ -544,7 +544,7 @@ module WelcomeHelper
     positions.each do |position|
       g = position.values
       g.sort!
-      position.delete_if {|k, v| v < g.last(3).first}
+      position.delete_if {|k, v| v < g.last}
     end
 
     return positions
@@ -669,7 +669,7 @@ module WelcomeHelper
     positions.each do |position|
       g = position.values
       g.sort!
-      position.delete_if {|k, v| v < g.last(3).first}
+      position.delete_if {|k, v| v < g.last}
     end
 
     return positions
@@ -707,11 +707,11 @@ module WelcomeHelper
     end
 
     #set all numbers that were drawn to 1
-    #5.times do |draw|
-    #  latest_draws[draw].each do |pick|
-    #    candidates[pick] = 1
-    #  end
-    #end
+    1.times do |draw|
+      latest_draws[draw].each do |pick|
+        candidates[pick] = 1
+      end
+    end
     
     #remove all numbers that were drawn
     #candidates.delete_if {|k, v| v == 1}
