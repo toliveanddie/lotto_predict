@@ -26,14 +26,14 @@ module WelcomeHelper
     end
 
     #set all numbers that were drawn to 1
-    7.times do |draw|
-      latest_draws[draw].each do |pick|
-        candidates[pick] = 1
-      end
-    end
+    #7.times do |draw|
+    #  latest_draws[draw].each do |pick|
+    #    candidates[pick] = 1
+    #  end
+    #end
   
     #remove all numbers that were drawn
-    candidates.delete_if {|k, v| v == 1}
+    #candidates.delete_if {|k, v| v == 1}
 
     #initialize ranges
     ball_five = Hash.new
@@ -109,7 +109,7 @@ module WelcomeHelper
     positions.each do |position|
       g = position.values
       g.sort!
-      position.delete_if {|k, v| v < g.last}
+      position.delete_if {|k, v| v < g.last(3).first}
     end
 
     #get the money ball counts
@@ -133,7 +133,7 @@ module WelcomeHelper
     #get highest counts
     cv = balls.values
     cv.uniq!.sort!
-    balls.delete_if {|k, v| v < cv.last(5).first}
+    balls.delete_if {|k, v| v < cv.last(4).first}
 
     positions.push(balls)
 
@@ -170,14 +170,14 @@ module WelcomeHelper
     end
 
     #set all numbers that were drawn to 1
-    7.times do |draw|
-      latest_draws[draw].each do |pick|
-        candidates[pick] = 1
-      end
-    end
+    #7.times do |draw|
+    #  latest_draws[draw].each do |pick|
+    #    candidates[pick] = 1
+    #  end
+    #end
   
     #remove all numbers that were drawn
-    candidates.delete_if {|k, v| v == 1}
+    #candidates.delete_if {|k, v| v == 1}
 
     #initialize ranges
     ball_five = Hash.new
@@ -253,7 +253,7 @@ module WelcomeHelper
     positions.each do |position|
       g = position.values
       g.sort!
-      position.delete_if {|k, v| v < g.last}
+      position.delete_if {|k, v| v < g.last(3).first}
     end
 
     #get the money ball counts
@@ -283,7 +283,7 @@ module WelcomeHelper
     #get highest counts
     cv = balls.values
     cv.sort!
-    balls.delete_if {|k, v| v < cv.last(5).first}
+    balls.delete_if {|k, v| v < cv.last(4).first}
 
     positions.push(balls)
 
@@ -326,14 +326,14 @@ module WelcomeHelper
     end
 
     #set all numbers that were drawn to 1
-    4.times do |draw|
-      latest_draws[draw].each do |pick|
-        candidates[pick] = 1
-      end
-    end
+    #4.times do |draw|
+    #  latest_draws[draw].each do |pick|
+    #    candidates[pick] = 1
+    #  end
+    #end
     
     #remove all numbers that were drawn
-    candidates.delete_if {|k, v| v == 1}
+    #candidates.delete_if {|k, v| v == 1}
     
     #initialize ranges
     ball_six = Hash.new
@@ -419,7 +419,7 @@ module WelcomeHelper
     positions.each do |position|
       g = position.values
       g.sort!
-      position.delete_if {|k, v| v < g.last}
+      position.delete_if {|k, v| v < g.last(3).first}
     end
 
     return positions
@@ -461,14 +461,14 @@ module WelcomeHelper
     end
 
     #set all numbers that were drawn to 1
-    4.times do |draw|
-      latest_draws[draw].each do |pick|
-        candidates[pick] = 1
-      end
-    end
+    #4.times do |draw|
+    #  latest_draws[draw].each do |pick|
+    #    candidates[pick] = 1
+    #  end
+    #end
     
     #remove all numbers that were drawn
-    candidates.delete_if {|k, v| v == 1}
+    #candidates.delete_if {|k, v| v == 1}
     
     #initialize ranges
 
@@ -544,7 +544,7 @@ module WelcomeHelper
     positions.each do |position|
       g = position.values
       g.sort!
-      position.delete_if {|k, v| v < g.last}
+      position.delete_if {|k, v| v < g.last(3).first}
     end
 
     return positions
@@ -586,14 +586,14 @@ module WelcomeHelper
     end
 
     #set all numbers that were drawn to 1
-    3.times do |draw|
-      latest_draws[draw].each do |pick|
-        candidates[pick] = 1
-      end
-    end
+    #3.times do |draw|
+    #  latest_draws[draw].each do |pick|
+    #    candidates[pick] = 1
+    #  end
+    #end
     
     #remove all numbers that were drawn
-    candidates.delete_if {|k, v| v == 1}
+    #candidates.delete_if {|k, v| v == 1}
     
     #initialize ranges
 
@@ -669,7 +669,7 @@ module WelcomeHelper
     positions.each do |position|
       g = position.values
       g.sort!
-      position.delete_if {|k, v| v < g.last}
+      position.delete_if {|k, v| v < g.last(3).first}
     end
 
     return positions
@@ -707,14 +707,14 @@ module WelcomeHelper
     end
 
     #set all numbers that were drawn to 1
-    5.times do |draw|
-      latest_draws[draw].each do |pick|
-        candidates[pick] = 1
-      end
-    end
+    #5.times do |draw|
+    #  latest_draws[draw].each do |pick|
+    #    candidates[pick] = 1
+    #  end
+    #end
     
     #remove all numbers that were drawn
-    candidates.delete_if {|k, v| v == 1}
+    #candidates.delete_if {|k, v| v == 1}
     
     #initialize ranges
 
@@ -790,7 +790,7 @@ module WelcomeHelper
     positions.each do |position|
       g = position.values
       g.sort!
-      position.delete_if {|k, v| v < g.last}
+      position.delete_if {|k, v| v < g.last(3).first}
     end
 
     return positions
