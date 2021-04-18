@@ -296,19 +296,20 @@ module WelcomeHelper
   def match6
 
     # get the source
-    doc = Nokogiri::HTML(URI.open('https://lottery.com/previous-results/pa/match6lottopa/2021/'))
+    doc = Nokogiri::HTML(URI.open('https://www.lotteryusa.com/pennsylvania/match-6/year'))
     results = []
-    doc.css('td').each do |data|
-      results.push(data.content)
+    doc.css('li').each do |data|
+      d = data.content
+      if d.to_i != 0
+        results.push(d)
+      end
     end
 
     latest_draws = Array.new #holds strings of numbers
 
     #push numbers into array and only get enough so that all numbers are accounted for
-    counter = 3
-    100.times do
-      latest_draws.push(results[counter].split('-'))
-      counter = counter + 5
+    500.times do
+      latest_draws.push(results.shift(6))
       break if latest_draws.flatten.uniq.length == 49
     end
   
