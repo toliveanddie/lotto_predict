@@ -26,7 +26,7 @@ module WelcomeHelper
     end
 
     #set all numbers that were drawn to 1
-    1.times do |draw|
+    6.times do |draw|
       latest_draws[draw].each do |pick|
         candidates[pick] = 1
       end
@@ -170,7 +170,7 @@ module WelcomeHelper
     end
 
     #set all numbers that were drawn to 1
-    1.times do |draw|
+    6.times do |draw|
       latest_draws[draw].each do |pick|
         candidates[pick] = 1
       end
@@ -325,15 +325,15 @@ module WelcomeHelper
       candidates[a] = 0
     end
 
-    #set all numbers that were drawn to 1
-    #7.times do |draw|
-    #  latest_draws[draw].each do |pick|
-    #    candidates[pick] = 1
-    #  end
-    #end
+    set all numbers that were drawn to 1
+    4.times do |draw|
+      latest_draws[draw].each do |pick|
+        candidates[pick] = 1
+      end
+    end
     
     #remove all numbers that were drawn
-    #candidates.delete_if {|k, v| v == 1}
+    candidates.delete_if {|k, v| v == 1}
     
     #initialize ranges
     ball_six = Hash.new
@@ -461,14 +461,14 @@ module WelcomeHelper
     end
 
     #set all numbers that were drawn to 1
-    #4.times do |draw|
-    #  latest_draws[draw].each do |pick|
-    #    candidates[pick] = 1
-    #  end
-    #end
+    4.times do |draw|
+      latest_draws[draw].each do |pick|
+        candidates[pick] = 1
+      end
+    end
     
     #remove all numbers that were drawn
-    #candidates.delete_if {|k, v| v == 1}
+    candidates.delete_if {|k, v| v == 1}
     
     #initialize ranges
 
@@ -586,14 +586,14 @@ module WelcomeHelper
     end
 
     #set all numbers that were drawn to 1
-    #3.times do |draw|
-    #  latest_draws[draw].each do |pick|
-    #    candidates[pick] = 1
-    #  end
-    #end
+    3.times do |draw|
+      latest_draws[draw].each do |pick|
+        candidates[pick] = 1
+      end
+    end
     
     #remove all numbers that were drawn
-    #candidates.delete_if {|k, v| v == 1}
+    candidates.delete_if {|k, v| v == 1}
     
     #initialize ranges
 
@@ -707,14 +707,14 @@ module WelcomeHelper
     end
 
     #set all numbers that were drawn to 1
-    1.times do |draw|
+    5.times do |draw|
       latest_draws[draw].each do |pick|
         candidates[pick] = 1
       end
     end
     
     #remove all numbers that were drawn
-    #candidates.delete_if {|k, v| v == 1}
+    candidates.delete_if {|k, v| v == 1}
     
     #initialize ranges
 
