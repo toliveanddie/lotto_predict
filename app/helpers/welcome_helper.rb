@@ -325,7 +325,7 @@ module WelcomeHelper
       candidates[a] = 0
     end
 
-    set all numbers that were drawn to 1
+    #set all numbers that were drawn to 1
     4.times do |draw|
       latest_draws[draw].each do |pick|
         candidates[pick] = 1
