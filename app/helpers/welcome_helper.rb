@@ -1,23 +1,29 @@
 module WelcomeHelper
 
   def powerball
-    #get the source
-    results = JSON.parse(HTTParty.get('https://data.ny.gov/resource/d6yy-54nr.json').body)
-
-    #push the results into an array.
-    winning_numbers = Array.new
-    results.each do |key|
-      winning_numbers.push(key['winning_numbers'].split)
+    # get the source
+    doc = Nokogiri::HTML(URI.open('https://www.lotteryusa.com/pennsylvania/powerball/year'))
+    results = []
+    doc.css('li').each do |data|
+      d = data.content
+      if d.to_i != 0
+        results.push(d)
+      end
     end
 
-    #get enough draws so that all numbers are accounted for
-    latest_draws = []
-    100.times do |picks|
-      latest_draws.push(winning_numbers[picks].take(5))
+    latest_draws = Array.new #holds strings of numbers
+
+    #push numbers into array and only get enough so that all numbers are accounted for
+    500.times do
+      latest_draws.push(results.shift(5))
       break if latest_draws.flatten.uniq.length == 69
     end
-    all_numbers = []
-    all_numbers = latest_draws.flatten.uniq.sort
+  
+    #put all 49 numbers into an array as strings
+    all_numbers = Array.new
+    69.times do |t|
+      all_numbers.push((t+1).to_s)
+    end
 
     #create hash with all numbers and set value to zero
     candidates = Hash.new
@@ -113,17 +119,26 @@ module WelcomeHelper
     end
 
     #get the money ball counts
-    ball = []
-    300.times do |picks|
-    ball.push(winning_numbers[picks].last)
-      break if ball.flatten.uniq.length == 26
+
+    total_ball = []
+    doc.css('span').each do |span|
+      s = span.content
+      if s.to_i != 0
+        total_ball.push(s)
+      end
     end
-    all_balls = ball.flatten.uniq.sort
+
+    ball = []
+    100.times do |element|
+      ball.push(total_ball[element])
+      break if ball.flatten.uniq.length == 25
+    end
+    all_balls = ball.flatten.uniq
 
     #initialize the hash
     balls = Hash.new
-    all_balls.each do |ball|
-      balls[ball] = 0
+    all_balls.each do |number|
+      balls[number] = 0
     end
 
     ball.each do |number|
@@ -132,7 +147,7 @@ module WelcomeHelper
 
     #get highest counts
     cv = balls.values
-    cv.uniq!.sort!
+    cv.sort!
     balls.delete_if {|k, v| v < cv.last(4).first}
 
     positions.push(balls)
@@ -145,23 +160,29 @@ module WelcomeHelper
   ###########################################
 
   def megaball
-    #get the source
-    results = JSON.parse(HTTParty.get('https://data.ny.gov/resource/5xaw-6ayf.json').body)
-
-    #push the results into an array.
-    winning_numbers = Array.new
-    results.each do |key|
-      winning_numbers.push(key['winning_numbers'].split)
+    # get the source
+    doc = Nokogiri::HTML(URI.open('https://www.lotteryusa.com/pennsylvania/mega-millions/year'))
+    results = []
+    doc.css('li').each do |data|
+      d = data.content
+      if d.to_i != 0
+        results.push(d)
+      end
     end
 
-    #get enough draws so that all numbers are accounted for
-    latest_draws = []
-    100.times do |picks|
-      latest_draws.push(winning_numbers[picks])
+    latest_draws = Array.new #holds strings of numbers
+
+    #push numbers into array and only get enough so that all numbers are accounted for
+    500.times do
+      latest_draws.push(results.shift(5))
       break if latest_draws.flatten.uniq.length == 70
     end
-    all_numbers = []
-    all_numbers = latest_draws.flatten.uniq.sort
+  
+    #put all 49 numbers into an array as strings
+    all_numbers = Array.new
+    70.times do |t|
+      all_numbers.push((t+1).to_s)
+    end
 
     #create hash with all numbers and set value to zero
     candidates = Hash.new
@@ -259,8 +280,11 @@ module WelcomeHelper
     #get the money ball counts
 
     total_ball = []
-    results.each do |picks|
-      total_ball.push(picks['mega_ball'])
+    doc.css('span').each do |span|
+      s = span.content
+      if s.to_i != 0
+        total_ball.push(s)
+      end
     end
 
     ball = []
@@ -683,22 +707,28 @@ module WelcomeHelper
   def cash4life
 
     # get the source
-    results = JSON.parse(HTTParty.get('https://data.ny.gov/resource/kwxv-fwze.json').body)
-
-    #push the results into an array.
-    winning_numbers = Array.new
-    results.each do |key|
-      winning_numbers.push(key['winning_numbers'].split)
+    doc = Nokogiri::HTML(URI.open('https://www.lotteryusa.com/pennsylvania/cash4life/year'))
+    results = []
+    doc.css('li').each do |data|
+      d = data.content
+      if d.to_i != 0
+        results.push(d)
+      end
     end
 
-    #get enough draws so that all numbers are accounted for
-    latest_draws = []
-    100.times do |picks|
-      latest_draws.push(winning_numbers[picks])
+    latest_draws = Array.new #holds strings of numbers
+
+    #push numbers into array and only get enough so that all numbers are accounted for
+    500.times do
+      latest_draws.push(results.shift(5))
       break if latest_draws.flatten.uniq.length == 60
     end
-    all_numbers = []
-    all_numbers = latest_draws.flatten.uniq.sort
+  
+    #put all 49 numbers into an array as strings
+    all_numbers = Array.new
+    60.times do |t|
+      all_numbers.push((t+1).to_s)
+    end
 
     #create hash with all numbers and set value to zero
     candidates = Hash.new
