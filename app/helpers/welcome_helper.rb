@@ -293,7 +293,7 @@ module WelcomeHelper
       break if ball.flatten.uniq.length == 25
     end
     all_balls = ball.flatten.uniq
-
+    
     #initialize the hash
     balls = Hash.new
     all_balls.each do |number|
