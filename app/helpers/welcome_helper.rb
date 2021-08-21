@@ -27,7 +27,7 @@ module WelcomeHelper
     100.times do
       draws.push(results.shift(5))
       results.shift(1)
-      break if draws.flatten.uniq.length >= 69
+      #break if draws.flatten.uniq.length >= 69
     end
   
     c=1
@@ -134,7 +134,7 @@ module WelcomeHelper
     100.times do
       draws.push(results.shift(5))
       results.shift(1)
-      break if draws.flatten.uniq.length >= 70
+      #break if draws.flatten.uniq.length >= 70
     end
   
     c=1
@@ -228,9 +228,9 @@ module WelcomeHelper
     latest_draws = Array.new #holds strings of numbers
 
     #push numbers into array and only get enough so that all numbers are accounted for
-    100.times do
+    95.times do
       latest_draws.push(results.shift(6))
-      break if latest_draws.flatten.uniq.length >= 49
+      #break if latest_draws.flatten.uniq.length >= 49
     end
 
     latest_draws.shift
@@ -368,9 +368,9 @@ module WelcomeHelper
 
     #push numbers into array and only get enough so that all numbers are accounted for
     counter = 3
-    100.times do
+    95.times do
       latest_draws.push(results.shift(5))
-      break if latest_draws.flatten.uniq.length >= 43
+      #break if latest_draws.flatten.uniq.length >= 43
     end
   
     #put all 43 numbers into an array as strings
@@ -495,9 +495,9 @@ module WelcomeHelper
 
     #push numbers into array and only get enough so that all numbers are accounted for
     
-    100.times do
+    95.times do
       latest_draws.push(results.shift(5))
-      break if latest_draws.flatten.uniq.length >= 30
+      #break if latest_draws.flatten.uniq.length >= 30
     end
 
     #put all 30 numbers into an array as strings
@@ -622,9 +622,9 @@ module WelcomeHelper
     latest_draws = Array.new #holds strings of numbers
 
     #push numbers into array and only get enough so that all numbers are accounted for
-    100.times do
+    95.times do
       latest_draws.push(results.shift(5))
-      break if latest_draws.flatten.uniq.length >= 60
+      #break if latest_draws.flatten.uniq.length >= 60
     end
   
     #put all 49 numbers into an array as strings
