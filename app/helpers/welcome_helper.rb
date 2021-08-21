@@ -353,7 +353,7 @@ module WelcomeHelper
     end
 
     #set all numbers that were drawn to 1
-    3.times do |draw|
+    4.times do |draw|
       latest_draws[draw].each do |pick|
         candidates[pick] = 1
       end
@@ -490,7 +490,7 @@ module WelcomeHelper
     end
 
     #set all numbers that were drawn to 1
-    10.times do |draw|
+    4.times do |draw|
       latest_draws[draw].each do |pick|
         candidates[pick] = 1
       end
@@ -617,7 +617,7 @@ module WelcomeHelper
     end
 
     #set all numbers that were drawn to 1
-    2.times do |draw|
+    3.times do |draw|
       latest_draws[draw].each do |pick|
         candidates[pick] = 1
       end
