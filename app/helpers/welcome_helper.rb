@@ -24,7 +24,7 @@ module WelcomeHelper
     positions = [ball_one, ball_two, ball_three, ball_four, ball_five]
 
     #push numbers into array and only get enough so that all numbers are accounted for
-    92.times do
+    100.times do
       draws.push(results.shift(5))
       results.shift(1)
       #break if draws.flatten.uniq.length >= 69
@@ -131,7 +131,7 @@ module WelcomeHelper
     positions = [ball_one, ball_two, ball_three, ball_four, ball_five]
 
     #push numbers into array and only get enough so that all numbers are accounted for
-    92.times do
+    100.times do
       draws.push(results.shift(5))
       results.shift(1)
       #break if draws.flatten.uniq.length >= 70
@@ -228,7 +228,7 @@ module WelcomeHelper
     latest_draws = Array.new #holds strings of numbers
 
     #push numbers into array and only get enough so that all numbers are accounted for
-    92.times do
+    100.times do
       latest_draws.push(results.shift(6))
       #break if latest_draws.flatten.uniq.length >= 49
     end
@@ -368,7 +368,7 @@ module WelcomeHelper
 
     #push numbers into array and only get enough so that all numbers are accounted for
     counter = 3
-    92.times do
+    100.times do
       latest_draws.push(results.shift(5))
       #break if latest_draws.flatten.uniq.length >= 43
     end
@@ -495,7 +495,7 @@ module WelcomeHelper
 
     #push numbers into array and only get enough so that all numbers are accounted for
     
-    92.times do
+    100.times do
       latest_draws.push(results.shift(5))
       #break if latest_draws.flatten.uniq.length >= 30
     end
@@ -622,7 +622,7 @@ module WelcomeHelper
     latest_draws = Array.new #holds strings of numbers
 
     #push numbers into array and only get enough so that all numbers are accounted for
-    92.times do
+    100.times do
       latest_draws.push(results.shift(5))
       #break if latest_draws.flatten.uniq.length >= 60
     end
