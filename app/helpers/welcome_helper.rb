@@ -27,7 +27,7 @@ module WelcomeHelper
     100.times do
       draws.push(results.shift(5))
       results.shift(1)
-      break if draws.flatten.uniq.length >= 69
+      #break if draws.flatten.uniq.length >= 69
     end
   
     c=1
@@ -134,7 +134,7 @@ module WelcomeHelper
     100.times do
       draws.push(results.shift(5))
       results.shift(1)
-      break if draws.flatten.uniq.length >= 70
+      #break if draws.flatten.uniq.length >= 70
     end
   
     c=1
@@ -186,7 +186,7 @@ module WelcomeHelper
     ball = []
     100.times do |element|
       ball.push(total_ball[element])
-      #break if ball.flatten.uniq.length >= 25
+      break if ball.flatten.uniq.length >= 25
     end
     all_balls = ball.flatten.uniq
     
@@ -203,7 +203,7 @@ module WelcomeHelper
     #get highest counts
     cv = balls.values
     cv.sort!
-    balls.delete_if {|k, v| v < cv.last(10).first}
+    balls.delete_if {|k, v| v < cv.last(13).first}
 
     positions.push(balls)
 
@@ -232,9 +232,6 @@ module WelcomeHelper
       latest_draws.push(results.shift(6))
       break if latest_draws.flatten.uniq.length >= 49
     end
-
-    latest_draws.shift
-    #latest_draws.shift
   
     #put all 49 numbers into an array as strings
     all_numbers = Array.new
@@ -624,7 +621,7 @@ module WelcomeHelper
     #push numbers into array and only get enough so that all numbers are accounted for
     100.times do
       latest_draws.push(results.shift(5))
-      break if latest_draws.flatten.uniq.length >= 60
+      #break if latest_draws.flatten.uniq.length >= 60
     end
   
     #put all 49 numbers into an array as strings
@@ -640,7 +637,7 @@ module WelcomeHelper
     end
 
     #set all numbers that were drawn to 1
-    4.times do |draw|
+    6.times do |draw|
       latest_draws[draw].each do |pick|
         candidates[pick] = 1
       end
