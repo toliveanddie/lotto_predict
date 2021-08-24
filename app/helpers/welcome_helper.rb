@@ -27,7 +27,8 @@ module WelcomeHelper
     100.times do
       draws.push(results.shift(5))
       results.shift(1)
-      #break if draws.flatten.uniq.length >= 69
+      count = draws.length
+      break if draws.flatten.uniq.length >= 69
     end
   
     c=1
@@ -77,7 +78,7 @@ module WelcomeHelper
     end
 
     ball = []
-    100.times do |element|
+    count.times do |element|
       ball.push(total_ball[element])
       #break if ball.flatten.uniq.length >= 26
     end
@@ -96,7 +97,7 @@ module WelcomeHelper
     #get highest counts
     cv = balls.values
     cv.sort!
-    balls.delete_if {|k, v| v < cv.last(10).first}
+    balls.delete_if {|k, v| v < cv.last(8).first}
 
     positions.push(balls)
 
@@ -134,7 +135,8 @@ module WelcomeHelper
     100.times do
       draws.push(results.shift(5))
       results.shift(1)
-      #break if draws.flatten.uniq.length >= 70
+      count = draws.length
+      break if draws.flatten.uniq.length >= 70
     end
   
     c=1
@@ -184,9 +186,9 @@ module WelcomeHelper
     end
 
     ball = []
-    100.times do |element|
+    count.times do |element|
       ball.push(total_ball[element])
-      break if ball.flatten.uniq.length >= 25
+      #break if ball.flatten.uniq.length >= 25
     end
     all_balls = ball.flatten.uniq
     
@@ -203,7 +205,7 @@ module WelcomeHelper
     #get highest counts
     cv = balls.values
     cv.sort!
-    balls.delete_if {|k, v| v < cv.last(13).first}
+    balls.delete_if {|k, v| v < cv.last(8).first}
 
     positions.push(balls)
 
