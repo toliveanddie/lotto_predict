@@ -22,12 +22,13 @@ module WelcomeHelper
     
     positions = Array.new
     positions = [ball_one, ball_two, ball_three, ball_four, ball_five]
+    draw_count = 0
 
     #push numbers into array and only get enough so that all numbers are accounted for
     100.times do
       draws.push(results.shift(5))
       results.shift(1)
-      count = draws.length
+      draw_count = draws.length
       break if draws.flatten.uniq.length >= 69
     end
   
@@ -78,7 +79,7 @@ module WelcomeHelper
     end
 
     ball = []
-    count.times do |element|
+    draw_count.times do |element|
       ball.push(total_ball[element])
       #break if ball.flatten.uniq.length >= 26
     end
@@ -130,12 +131,13 @@ module WelcomeHelper
     
     positions = Array.new
     positions = [ball_one, ball_two, ball_three, ball_four, ball_five]
+    draw_count = 0
 
     #push numbers into array and only get enough so that all numbers are accounted for
     100.times do
       draws.push(results.shift(5))
       results.shift(1)
-      count = draws.length
+      draw_count = draws.length
       break if draws.flatten.uniq.length >= 70
     end
   
@@ -186,7 +188,7 @@ module WelcomeHelper
     end
 
     ball = []
-    count.times do |element|
+    draw_count.times do |element|
       ball.push(total_ball[element])
       #break if ball.flatten.uniq.length >= 25
     end
