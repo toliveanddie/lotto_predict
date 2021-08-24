@@ -98,7 +98,7 @@ module WelcomeHelper
     #get highest counts
     cv = balls.values
     cv.sort!
-    balls.delete_if {|k, v| v < cv.last(8).first}
+    balls.delete_if {|k, v| v < cv.last(7).first}
 
     positions.push(balls)
 
@@ -207,7 +207,7 @@ module WelcomeHelper
     #get highest counts
     cv = balls.values
     cv.sort!
-    balls.delete_if {|k, v| v < cv.last(8).first}
+    balls.delete_if {|k, v| v < cv.last(7).first}
 
     positions.push(balls)
 
