@@ -29,7 +29,7 @@ module WelcomeHelper
       draws.push(results.shift(5))
       results.shift(1)
       draw_count = draws.length
-      break if draws.flatten.uniq.length >= 69
+      #break if draws.flatten.uniq.length >= 69
     end
   
     c=1
@@ -52,7 +52,7 @@ module WelcomeHelper
       end
     end    
 
-    latest_draws = draws.shift(7)
+    latest_draws = draws.shift(13)
     latest_draws.flatten!.uniq!.sort!
 
     latest_draws.each do |pick|
@@ -65,7 +65,7 @@ module WelcomeHelper
     positions.each do |position|
       g = position.values
       g.sort!
-      position.delete_if {|k, v| v < g.last}
+      position.delete_if {|k, v| v < g.last(2).first}
     end
 
     #get the money ball counts
@@ -98,7 +98,7 @@ module WelcomeHelper
     #get highest counts
     cv = balls.values
     cv.sort!
-    balls.delete_if {|k, v| v < cv.last(7).first}
+    balls.delete_if {|k, v| v < cv.last(8).first}
 
     positions.push(balls)
 
@@ -138,7 +138,7 @@ module WelcomeHelper
       draws.push(results.shift(5))
       results.shift(1)
       draw_count = draws.length
-      break if draws.flatten.uniq.length >= 70
+      #break if draws.flatten.uniq.length >= 70
     end
   
     c=1
@@ -161,7 +161,7 @@ module WelcomeHelper
       end
     end
 
-    latest_draws = draws.shift(7)
+    latest_draws = draws.shift(13)
     latest_draws.flatten!.uniq!.sort!
 
     latest_draws.each do |pick|
@@ -174,7 +174,7 @@ module WelcomeHelper
     positions.each do |position|
       g = position.values
       g.sort!
-      position.delete_if {|k, v| v < g.last}
+      position.delete_if {|k, v| v < g.last(2).first}
     end
 
     #get the money ball counts
@@ -207,7 +207,7 @@ module WelcomeHelper
     #get highest counts
     cv = balls.values
     cv.sort!
-    balls.delete_if {|k, v| v < cv.last(7).first}
+    balls.delete_if {|k, v| v < cv.last(8).first}
 
     positions.push(balls)
 
@@ -234,7 +234,7 @@ module WelcomeHelper
     #push numbers into array and only get enough so that all numbers are accounted for
     100.times do
       latest_draws.push(results.shift(6))
-      break if latest_draws.flatten.uniq.length >= 49
+      #break if latest_draws.flatten.uniq.length >= 49
     end
   
     #put all 49 numbers into an array as strings
@@ -250,7 +250,7 @@ module WelcomeHelper
     end
 
     #set all numbers that were drawn to 1
-    4.times do |draw|
+    7.times do |draw|
       latest_draws[draw].each do |pick|
         candidates[pick] = 1
       end
@@ -343,7 +343,7 @@ module WelcomeHelper
     positions.each do |position|
       g = position.values
       g.sort!
-      position.delete_if {|k, v| v < g.last}
+      position.delete_if {|k, v| v < g.last(2).first}
     end
 
     return positions
@@ -371,7 +371,7 @@ module WelcomeHelper
     counter = 3
     100.times do
       latest_draws.push(results.shift(5))
-      break if latest_draws.flatten.uniq.length >= 43
+      #break if latest_draws.flatten.uniq.length >= 43
     end
   
     #put all 43 numbers into an array as strings
@@ -387,7 +387,7 @@ module WelcomeHelper
     end
 
     #set all numbers that were drawn to 1
-    4.times do |draw|
+    8.times do |draw|
       latest_draws[draw].each do |pick|
         candidates[pick] = 1
       end
@@ -470,7 +470,7 @@ module WelcomeHelper
     positions.each do |position|
       g = position.values
       g.sort!
-      position.delete_if {|k, v| v < g.last}
+      position.delete_if {|k, v| v < g.last(2).first}
     end
 
     return positions
@@ -498,7 +498,7 @@ module WelcomeHelper
     
     100.times do
       latest_draws.push(results.shift(5))
-      break if latest_draws.flatten.uniq.length >= 30
+      #break if latest_draws.flatten.uniq.length >= 30
     end
 
     #put all 30 numbers into an array as strings
@@ -514,7 +514,7 @@ module WelcomeHelper
     end
 
     #set all numbers that were drawn to 1
-    3.times do |draw|
+    5.times do |draw|
       latest_draws[draw].each do |pick|
         candidates[pick] = 1
       end
@@ -597,7 +597,7 @@ module WelcomeHelper
     positions.each do |position|
       g = position.values
       g.sort!
-      position.delete_if {|k, v| v < g.last}
+      position.delete_if {|k, v| v < g.last(2).first}
     end
 
     return positions
@@ -641,7 +641,7 @@ module WelcomeHelper
     end
 
     #set all numbers that were drawn to 1
-    6.times do |draw|
+11.times do |draw|
       latest_draws[draw].each do |pick|
         candidates[pick] = 1
       end
@@ -724,7 +724,7 @@ module WelcomeHelper
     positions.each do |position|
       g = position.values
       g.sort!
-      position.delete_if {|k, v| v < g.last}
+      position.delete_if {|k, v| v < g.last(2).first}
     end
 
     return positions
